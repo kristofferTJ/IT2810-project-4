@@ -43,7 +43,7 @@ router.get('/filter', async (req: any, res: Response) => {
       ? req.query.name.toLocaleLowerCase()
       : '';
     const limitAmount =
-      req.query.limit && req.query.limit === 'none' ? 151 : 20;
+      req.query.limit && req.query.limit === 'none' ? 151 : 15;
 
     type sortType = {
       name?: number;

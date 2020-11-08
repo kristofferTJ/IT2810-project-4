@@ -1,48 +1,46 @@
-import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { View, Text, Image } from 'react-native';
+import React, { useEffect } from 'react';
+import { View, Text, Image, StyleSheet, ImageSourcePropType } from 'react-native';
 import { Card, ListItem, Button, Icon } from 'react-native-elements';
+import { IRestaurant } from '../../backend/models/Restaurant';
 
-const users = [
-    {
-       name: 'brynn',
-       avatar: 'https://s3.amazonaws.com/uifaces/faces/twitter/brynn/128.jpg'
-    }, // more users here
-   ];
+type Props = {
+    restaurant: IRestaurant
+  }
 
-export default function Restaurantobject() {
-  return (
-    <Card>
-        <Card.Title>CARD WITH DIVIDER</Card.Title>
-        <Card.Divider/>
-        {
-            users.map((u, i) => {
-            return (
-                <View key={i} style={styles.user}>
-                <Image
-                    style={styles.image}
-                    resizeMode="cover"
-                    source={{ uri: u.avatar }}
-                />
-                <Text style={styles.name}>{u.name}</Text>
-                </View>
-            );
-            })
-        }
+export const Restaurantobject: React.FC<Props> = ({ restaurant }) => {
+
+    const restaurantnames: string[] = [
+        "American", "Asian", "Classic cuisine", "Contemporary", 
+        "Creative", "European contemporary", "Indian", "Italian", "Japanese",
+        "Korean", "Market cuisine", "Modern cuisine", "Vegetarian"
+      ]
+
+    let img: ImageSourcePropType = require('../images/Default.jpg');
+
+    return(
+     <Card>
+         <Card.Title>{restaurant.name}</Card.Title>
+         <Card.Divider/>
+         <View style={styles.container} >
+         <Image source={img} style={{width:170, height:100}}></Image>
+         <View>
+         <Text style={styles.text}>{restaurant.region}</Text>
+         <Text style={styles.text}>{restaurant.cuisine}</Text>
+         <Text style={styles.text}>{restaurant.price}</Text>
+         </View>
+         </View>
     </Card>
-  );
+    )
 }
 
 
-// const styles = StyleSheet.create({
-//   header: {
-//     height: 100,
-//     padding: 15,
-//     backgroundColor: '#4dd0e1',
-//   },
-//   text: {
-//     paddingTop: 40,
-//     color: 'white', 
-//     fontSize: 28
-//   }
-// });
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        flexDirection: "row"
+      },
+    text: {
+        paddingLeft: 30,
+        paddingTop: 15
+    }
+})
