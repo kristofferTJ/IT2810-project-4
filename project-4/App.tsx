@@ -1,20 +1,32 @@
-import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, View, ScrollView } from 'react-native';
-import Header from './components/Header';
-import Searchbar from './components/Searchbar';
+import { StyleSheet, View} from 'react-native';
+//import { NavigationContainer } from '@react-navigation/native';
+//import { createStackNavigator } from '@react-navigation/stack';
+//import HomeScreen from './pages/HomeScreen';
+import RestaurantScreen from './pages/RestaurantScreen';
+//import 'react-native-gesture-handler';
 
+//const Stack = createStackNavigator();
 
 export default function App() {
   return (
-    <View>
-    <Header/>
-    <ScrollView>
-    <Searchbar/>
-      <View style={styles.container}>
-      </View>
-    </ScrollView>
-    </View>
+    /*
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen
+          name="Home"
+          component={HomeScreen}
+          options={{ title: 'Welcome' }}
+        />
+        <Stack.Screen 
+        name="Restaurant" 
+        component={RestaurantScreen} />
+      </Stack.Navigator>
+    </NavigationContainer>
+    */
+   <View>
+     <RestaurantScreen/>
+   </View>
   );
 }
 
