@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { IRestaurant } from '../../../../backend/models/Restaurant';
+import { IRestaurant } from '../../../backend/models/Restaurant';
 
 // Types
 
