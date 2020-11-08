@@ -11,6 +11,13 @@ import {IRestaurant} from '../backend/models/Restaurant';
 import { sortingType } from './store/ducks/sortingDuck';
 import thunk from 'redux-thunk';
 import Restaurants from './components/Restaurants';
+//import { NavigationContainer } from '@react-navigation/native';
+//import { createStackNavigator } from '@react-navigation/stack';
+//import HomeScreen from './pages/HomeScreen';
+//import 'react-native-gesture-handler';
+//const Stack = createStackNavigator();
+import RestaurantScreen from './pages/RestaurantScreen';
+
 
 
 
@@ -25,7 +32,6 @@ export type stateType = {
   skip: number,
   counter: number
 }
-
 
 export default function App() {
 
@@ -46,7 +52,22 @@ export default function App() {
     </ScrollView>
     </View>
     </Provider>
-  );
+
+    /*
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen
+          name="Home"
+          component={HomeScreen}
+          options={{ title: 'Welcome' }}
+        />
+        <Stack.Screen 
+        name="Restaurant" 
+        component={RestaurantScreen} />
+      </Stack.Navigator>
+    </NavigationContainer>
+    */
+    )
 }
 
 
