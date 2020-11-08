@@ -33,6 +33,7 @@ export default function Restaurantobject() {
   );
 }
 
+
 // const styles = StyleSheet.create({
 //   header: {
 //     height: 100,
