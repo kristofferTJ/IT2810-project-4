@@ -17,6 +17,16 @@ export const Restaurantobject: React.FC<Props> = ({ restaurant }) => {
 
     let img: ImageSourcePropType = require('../images/Default.jpg');
 
+    // let image_path: string = '';  
+  
+    // try {  
+    //     image_path = require('../../images/'+restaurant.cuisine+'.jpg'); 
+    //     } 
+    // catch(err){  
+    //     image_path = require('../../images/Default.jpg');  //set default image path
+    // }
+  
+
     return(
      <Card>
          <Card.Title>{restaurant.name}</Card.Title>
