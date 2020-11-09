@@ -29,16 +29,6 @@ export default function Searchbar() {
       size={22}
       name='search' />
     </View>
-    <Button
-        icon={
-        <Icon
-            name="filter_list"
-            size={15}
-            color="white"
-        />
-        }
-        title="Button with icon component"
-    />
   </View>
   );
 }

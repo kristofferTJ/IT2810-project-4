@@ -46,8 +46,6 @@ export default function App() {
     <Header/>
     <ScrollView>
     <Searchbar/>
-      <View style={styles.container}>
-      </View>
       <Restaurants></Restaurants>
     </ScrollView>
     </View>
