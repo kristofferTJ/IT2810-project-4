@@ -1,12 +1,13 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { Icon, Button } from 'react-native-elements'
+import { Icon } from 'react-native-elements'
 import { StyleSheet, TextInput, View } from 'react-native';
 
 export default function Searchbar() {
+
   return (
     <View>
-    <View style={styles.searchfield}>
+     <View style={styles.searchfield}>
       <TextInput
         placeholder='Search'
         style={styles.formField}
@@ -17,17 +18,7 @@ export default function Searchbar() {
       style={styles.searchicon}
       size={22}
       name='search' />
-    </View>
-    <Button
-        icon={
-        <Icon
-            name="filter_list"
-            size={15}
-            color="white"
-        />
-        }
-        title="Button with icon component"
-    />
+    </View> 
   </View>
   );
 }

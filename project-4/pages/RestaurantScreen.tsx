@@ -1,14 +1,27 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { StyleSheet, View, Text, Image } from 'react-native';
 import Header from '../components/Header';
 import { Divider, Icon } from 'react-native-elements';
+import { IRestaurant } from '../../backend/models/Restaurant';
+import { MaterialCommunityIcons, FontAwesome, Foundation } from '@expo/vector-icons';
 //import { Image } from 'react-native-elements';
 
+interface IParams {
+  name: string;
+}
 
-export default function RestaurantScreen() {
+export default function RestaurantScreen({navigation, route}: any) {
+
+  const [restaurant, setRestaurant] = useState<IRestaurant[]>();
+
+  const { id } = route.params;
+
+  //setRestaurant med å hente ut restaurant med denne id
+
+  console.log(id)
+
     return (
       <View>
-        <Header/>
         <Image source={require('../images/Default.jpg')} 
         style={{ width: 500, height: 200 }}
         />
@@ -17,8 +30,8 @@ export default function RestaurantScreen() {
           style={styles.restaurantname}>
             Credo</Text>
             <Icon
-            style={styles.icon}
-            size={22}
+            style={styles.staricon}
+            size={24}
             name='star' />
         </View>
         <Divider/>
@@ -38,21 +51,22 @@ export default function RestaurantScreen() {
             <Text style={styles.infotext}>Norway</Text>
           </View>
           <View style={styles.container}>
-            <Icon
-              style={styles.infoicon}
-              size={22}
-              name='done'
-              type='MaterialIcons' />
+          <MaterialCommunityIcons 
+            style={styles.infoicon}
+            name="food-fork-drink" 
+            size={22} 
+            color="black" />
             <Text style={styles.infotext}>
               Cuisne: 
             </Text>
             <Text style={styles.infotext}>Modern</Text>
           </View>
           <View style={styles.container}>
-            <Icon
+            <FontAwesome 
               style={styles.infoicon}
-              size={22}
-              name='done' />
+              name="dollar" 
+              size={20} 
+              color="black"/>
             <Text style={styles.infotext}>
               Price: 
             </Text>
@@ -70,13 +84,13 @@ export default function RestaurantScreen() {
     container: {
       flexDirection: 'row',
     },
-    icon: {
+    staricon: {
       paddingTop: 18,
       padding: 7, 
     },
     infoicon: {
       paddingTop: 8,
-      paddingLeft: 17, 
+      paddingLeft: 18, 
     },
     restaurantname: {
       color: '#263238', 
