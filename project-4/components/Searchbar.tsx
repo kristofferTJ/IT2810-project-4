@@ -47,8 +47,7 @@ const styles = StyleSheet.create({
         height: 50
     },
     searchicon:{
-         padding: 3,
-         
+         padding: 3, 
     },
     formField: {
         width: 300,

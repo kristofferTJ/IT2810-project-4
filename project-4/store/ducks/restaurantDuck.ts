@@ -1,4 +1,4 @@
-import { IRestaurant } from '../../../../backend/models/Restaurant';
+import { IRestaurant } from '../../../backend/models/Restaurant';
 import axios from 'axios';
 
 // Types
@@ -79,7 +79,7 @@ export function fetchRestaurants(
   return (dispatch: Function) =>
     axios
       .get(
-        `http://localhost:8000/api/restaurant/filter/?skip=${
+        `http://10.22.44.107:8000/api/restaurant/filter/?skip=${
           skipInput + regionString + cuisineString + priceString  + searchString + sortString + ascendingString}`
       )
       .then((response) => dispatch(fetchRestaurantsSuccess(response)))
