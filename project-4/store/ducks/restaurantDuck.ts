@@ -79,7 +79,7 @@ export function fetchRestaurants(
   return (dispatch: Function) =>
     axios
       .get(
-        `http://10.22.40.247:8000/api/restaurant/filter/?skip=${
+        `http://10.22.40.25:8000/api/restaurant/filter/?skip=${
           skipInput + regionString + cuisineString + priceString  + searchString + sortString + ascendingString}`
       )
       .then((response) => dispatch(fetchRestaurantsSuccess(response)))

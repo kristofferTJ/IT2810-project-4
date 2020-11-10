@@ -20,9 +20,6 @@ export const Restaurantobject: React.FC<Props> = ({ restaurant, navigation }) =>
 
     let img: ImageSourcePropType = require('../images/Default.jpg');
 
-    const id = restaurant._id
-    const name = restaurant.name
-
     return(
      <Card>
          <Card.Title>{restaurant.name}</Card.Title>
@@ -38,9 +35,7 @@ export const Restaurantobject: React.FC<Props> = ({ restaurant, navigation }) =>
          <Button 
           style={styles.button}
           onPress={() => 
-            navigation.navigate('Restaurant', {
-              id
-            })} 
+            navigation.navigate('Restaurant', restaurant)} 
             title={"More information"}
             icon={
               <Icon

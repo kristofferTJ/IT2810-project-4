@@ -4,21 +4,16 @@ import Header from '../components/Header';
 import { Divider, Icon } from 'react-native-elements';
 import { IRestaurant } from '../../backend/models/Restaurant';
 import { MaterialCommunityIcons, FontAwesome, Foundation } from '@expo/vector-icons';
+import {useRoute} from "@react-navigation/native";
 //import { Image } from 'react-native-elements';
 
 interface IParams {
   name: string;
 }
 
-export default function RestaurantScreen({navigation, route}: any) {
+export default function RestaurantScreen() {
 
-  const [restaurant, setRestaurant] = useState<IRestaurant[]>();
-
-  const { id } = route.params;
-
-  //setRestaurant med å hente ut restaurant med denne id
-
-  console.log(id)
+  const restaurant = useRoute().params as IRestaurant
 
     return (
       <View>
@@ -28,11 +23,19 @@ export default function RestaurantScreen({navigation, route}: any) {
         <View style={styles.container}>
           <Text
           style={styles.restaurantname}>
-            Credo</Text>
+            {restaurant.name}</Text>
             <Icon
             style={styles.staricon}
             size={24}
             name='star' />
+            {restaurant.stars>= 2 && <Icon
+            style={styles.staricon}
+            size={24}
+            name='star' />}
+            {restaurant.stars>= 3 && <Icon
+            style={styles.staricon}
+            size={24}
+            name='star' />}
         </View>
         <Divider/>
         <View>
@@ -48,7 +51,7 @@ export default function RestaurantScreen({navigation, route}: any) {
             <Text style={styles.infotext}>
               Region: 
             </Text>
-            <Text style={styles.infotext}>Norway</Text>
+            <Text style={styles.infotext}>{restaurant.region}</Text>
           </View>
           <View style={styles.container}>
           <MaterialCommunityIcons 
@@ -59,7 +62,7 @@ export default function RestaurantScreen({navigation, route}: any) {
             <Text style={styles.infotext}>
               Cuisne: 
             </Text>
-            <Text style={styles.infotext}>Modern</Text>
+            <Text style={styles.infotext}>{restaurant.cuisine}</Text>
           </View>
           <View style={styles.container}>
             <FontAwesome 
@@ -70,7 +73,7 @@ export default function RestaurantScreen({navigation, route}: any) {
             <Text style={styles.infotext}>
               Price: 
             </Text>
-            <Text style={styles.infotext}>$$$</Text>
+            <Text style={styles.infotext}>{restaurant.price}</Text>
           </View>
         </View>
         <Divider/>
