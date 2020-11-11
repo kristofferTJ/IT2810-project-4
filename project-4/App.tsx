@@ -17,7 +17,6 @@ import Restaurants from './components/Restaurants';
 //import 'react-native-gesture-handler';
 //const Stack = createStackNavigator();
 import RestaurantScreen from './pages/RestaurantScreen';
-import FilterButtons from './components/FilterButtons';
 
 
 
@@ -45,7 +44,6 @@ export default function App() {
     <Provider store={store}>
     <View>
     <Header/>
-    <FilterButtons></FilterButtons>
     <ScrollView>
     <Searchbar/>
       <Restaurants></Restaurants>
