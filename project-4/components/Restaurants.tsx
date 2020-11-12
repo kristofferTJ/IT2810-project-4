@@ -5,7 +5,7 @@ import { View, Text, Image, ScrollView } from 'react-native';
 import { Card, ListItem, Button, Icon } from 'react-native-elements';
 import { useDispatch, useSelector } from 'react-redux';
 import { IRestaurant } from '../../backend/models/Restaurant';
-import { stateType } from '../App';
+import { stateType } from '../pages/HomeScreen';
 import { fetchRestaurants } from '../store/ducks/restaurantDuck';
 import { Restaurantobject } from './Restaurantobject';
 

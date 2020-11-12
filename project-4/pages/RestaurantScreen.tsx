@@ -5,9 +5,11 @@ import { Divider, Icon } from 'react-native-elements';
 import { IRestaurant } from '../../backend/models/Restaurant';
 import { MaterialCommunityIcons, FontAwesome, Foundation } from '@expo/vector-icons';
 import {useRoute} from "@react-navigation/native";
-import { TextInput } from 'react-native-gesture-handler';
-import { useDispatch } from 'react-redux';
+import { ScrollView, TextInput } from 'react-native-gesture-handler';
+import { Provider, useDispatch } from 'react-redux';
 import { saveComment } from '../store/ducks/commentDuck';
+import thunk from 'redux-thunk';
+import { createStore } from 'redux';
 //import { Image } from 'react-native-elements';
 
 interface IParams {
@@ -16,12 +18,15 @@ interface IParams {
 
 export default function RestaurantScreen() {
 
-  let currentComment: string = '';
+  let comment: string = '';
   const dispatch = useDispatch();
   const restaurant = useRoute().params as IRestaurant
 
+
     return (
       <View>
+        <ScrollView>
+
         <Image source={require('../images/Default.jpg')} 
         style={{ width: 500, height: 200 }}
         />
@@ -89,19 +94,22 @@ export default function RestaurantScreen() {
           <Divider></Divider>
           </View>
         ))}
+               </ScrollView>     
+
       <TextInput
         placeholder='Comment'
         placeholderTextColor={'#888888'}
-        onChangeText={(text: string) => currentComment=text}
+        onChangeText={(text: string) => comment=text}
       > 
       </TextInput>
       <Button
-         onPress={() => dispatch(saveComment({currentComment, restaurant}))}
-          title="Learn More"
+         onPress={() => dispatch(saveComment({comment, restaurant}))}
+          title="Submit"
           color="#841584"
           accessibilityLabel="Learn more about this purple button"
-        />      
+        /> 
       </View>
+
     );
   }
 

@@ -29,12 +29,11 @@ export type stateType = {
 
 export default function HomeScreen({navigation, route}: any) {
 
-  const middlewares = [thunk];
+  // const middlewares = [thunk];
 
-  const store = createStore(rootReducer, applyMiddleware(...middlewares));
+  // const store = createStore(rootReducer, applyMiddleware(...middlewares));
 
   return (
-    <Provider store={store}>
       <View>
       <ScrollView>
       <View style={styles.search}>
@@ -44,7 +43,6 @@ export default function HomeScreen({navigation, route}: any) {
       <Restaurants navigation={navigation}/>
       </ScrollView>
       </View>
-    </Provider>
 
   );
 }

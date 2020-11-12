@@ -40,7 +40,7 @@ export const saveComment = ({comment, restaurant}: commentType) => async (dispat
     const body = JSON.stringify({comment})
 
     try {
-        const response = await axios.put(`http://localhost:8000/api/restaurant/comment/${restaurant._id}`, body, config)
+        const response = await axios.put(`http://it2810-41.idi.ntnu.no:3000/api/restaurant/comment/${restaurant._id}`, body, config)
 
         dispatch({
             type: UPDATE_COMMENT,
