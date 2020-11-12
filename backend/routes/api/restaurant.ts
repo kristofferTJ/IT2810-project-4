@@ -49,7 +49,7 @@ router.get('/', async (req: any, res: Response) => {
 // @route   GET api/restaurant/:restaurant_id
 // @desc    Get restaurant by id
 // @access  Public
-router.get('/:restaurant_id', async (req: any, res: Response) => {
+router.get('/id/:restaurant_id', async (req: any, res: Response) => {
   const { comment } = req.body;
 
   try {
