@@ -13,6 +13,7 @@ import thunk from 'redux-thunk';
 import Restaurants from '../components/Restaurants';
 import Navigationbutton from '../components/Navigationbutton';
 import FilterButtons from '../components/FilterButtons';
+import Pagination from '../components/Pagination';
 
 
 // Types for all the redux states 
@@ -42,6 +43,7 @@ export default function HomeScreen({navigation, route}: any) {
         <FilterButtons></FilterButtons>
       </View>        
       <Restaurants navigation={navigation}/>
+      <Pagination/>
       </ScrollView>
       </View>
     </Provider>
