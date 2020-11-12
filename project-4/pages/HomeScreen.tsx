@@ -12,6 +12,7 @@ import { sortingType } from '../store/ducks/sortingDuck';
 import thunk from 'redux-thunk';
 import Restaurants from '../components/Restaurants';
 import Navigationbutton from '../components/Navigationbutton';
+import FilterButtons from '../components/FilterButtons';
 
 
 // Types for all the redux states 
@@ -36,13 +37,32 @@ export default function HomeScreen({navigation, route}: any) {
     <Provider store={store}>
       <View>
       <ScrollView>
-      <Searchbar/>
-        <Restaurants navigation={navigation}/>
+      <View style={styles.search}>
+        <Searchbar/>
+        <FilterButtons></FilterButtons>
+      </View>        
+      <Restaurants navigation={navigation}/>
       </ScrollView>
       </View>
     </Provider>
 
   );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    paddingTop: 0,
+    backgroundColor: 'lightgrey',
+  },
+
+  text: {color: 'blue', 
+  fontSize:30},
+
+  search: {
+    flexDirection: "row"
+  }
+});
+
 
 
