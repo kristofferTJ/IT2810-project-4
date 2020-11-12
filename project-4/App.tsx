@@ -17,6 +17,7 @@ import Restaurants from './components/Restaurants';
 //import 'react-native-gesture-handler';
 //const Stack = createStackNavigator();
 import RestaurantScreen from './pages/RestaurantScreen';
+import FilterButtons from './components/FilterButtons';
 
 
 
@@ -45,8 +46,11 @@ export default function App() {
     <View>
     <Header/>
     <ScrollView>
+    <View style={styles.search}>
     <Searchbar/>
-      <Restaurants></Restaurants>
+    <FilterButtons></FilterButtons>
+    </View>
+    <Restaurants></Restaurants>
     </ScrollView>
     </View>
     </Provider>
@@ -75,7 +79,12 @@ const styles = StyleSheet.create({
     paddingTop: 0,
     backgroundColor: 'lightgrey',
   },
+
   text: {color: 'blue', 
-  fontSize:30}
+  fontSize:30},
+
+  search: {
+    flexDirection: "row"
+  }
 });
 

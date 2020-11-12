@@ -45,13 +45,13 @@ const styles = StyleSheet.create({
         paddingRight: 20,
         borderRadius: 20,
         borderColor: '#888888',
-        height: 50
+        height: 50,
     },
     searchicon:{
          padding: 3, 
     },
     formField: {
-        width: 300,
+        width: 210,
         fontSize: 18,
     }
 });
