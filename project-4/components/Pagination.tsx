@@ -21,8 +21,7 @@ export default function Pagination() {
     <View style={{alignItems: 'center'}}>
     <View style={styles.container}>
         <Button onPress={() => skip>0 ? dispatch(updateSkip(skip - 20)) : skip=0} disabled={skip===0 ? true : false} type="clear" icon={<AntDesign name="leftcircleo" size={35} color={skip===0 ? "gray" : "black"} />}/>
-        <Button onPress={() => (skip/20+1)<counter ? dispatch(updateSkip(skip + 20)) : skip===skip} type="clear" icon={<AntDesign name="rightcircleo" size={35} color="black" />}/>
-        
+        <Button onPress={() => (skip/20+1)<counter ? dispatch(updateSkip(skip + 20)) : skip===skip } type="clear" icon={<AntDesign name="rightcircleo" size={35} color="black" />}/>     
     </View>
     </View>
   );
