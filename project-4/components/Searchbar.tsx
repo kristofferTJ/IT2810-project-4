@@ -1,16 +1,27 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { Icon, Button } from 'react-native-elements'
+import { Icon } from 'react-native-elements'
 import { StyleSheet, TextInput, View } from 'react-native';
+import { useDispatch } from 'react-redux';
+import { updateSearch } from '../store/ducks/searchDuck';
 
 export default function Searchbar() {
+
+  const dispatch = useDispatch()
+
+    // Updates the search state 
+    function changeText(text: string) {
+      dispatch(updateSearch(text))
+  }
+
   return (
     <View>
-    <View style={styles.searchfield}>
+     <View style={styles.searchfield}>
       <TextInput
         placeholder='Search'
         style={styles.formField}
         placeholderTextColor={'#888888'}
+        onChangeText={(text: string) => changeText(text)}
       > 
       </TextInput>
       <Icon
@@ -18,16 +29,6 @@ export default function Searchbar() {
       size={22}
       name='search' />
     </View>
-    <Button
-        icon={
-        <Icon
-            name="filter_list"
-            size={15}
-            color="white"
-        />
-        }
-        title="Button with icon component"
-    />
   </View>
   );
 }
@@ -44,13 +45,13 @@ const styles = StyleSheet.create({
         paddingRight: 20,
         borderRadius: 20,
         borderColor: '#888888',
-        height: 50
+        height: 50,
     },
     searchicon:{
          padding: 3, 
     },
     formField: {
-        width: 300,
+        width: 210,
         fontSize: 18,
     }
 });
