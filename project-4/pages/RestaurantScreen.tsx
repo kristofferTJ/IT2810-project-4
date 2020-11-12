@@ -1,10 +1,13 @@
 import React, {useState} from 'react';
-import { StyleSheet, View, Text, Image } from 'react-native';
+import { StyleSheet, View, Text, Image, Button } from 'react-native';
 import Header from '../components/Header';
 import { Divider, Icon } from 'react-native-elements';
 import { IRestaurant } from '../../backend/models/Restaurant';
 import { MaterialCommunityIcons, FontAwesome, Foundation } from '@expo/vector-icons';
 import {useRoute} from "@react-navigation/native";
+import { TextInput } from 'react-native-gesture-handler';
+import { useDispatch } from 'react-redux';
+import { saveComment } from '../store/ducks/commentDuck';
 //import { Image } from 'react-native-elements';
 
 interface IParams {
@@ -13,6 +16,8 @@ interface IParams {
 
 export default function RestaurantScreen() {
 
+  let currentComment: string = '';
+  const dispatch = useDispatch();
   const restaurant = useRoute().params as IRestaurant
 
     return (
@@ -77,7 +82,25 @@ export default function RestaurantScreen() {
           </View>
         </View>
         <Divider/>
-        <Text style={styles.infotext}>Comments:</Text>
+        <Text style={styles.about}>Comments:</Text>
+        {restaurant.comments.map((comment: string) => (
+          <View>
+          <Text style={styles.infotext}>{comment}</Text>
+          <Divider></Divider>
+          </View>
+        ))}
+      <TextInput
+        placeholder='Comment'
+        placeholderTextColor={'#888888'}
+        onChangeText={(text: string) => currentComment=text}
+      > 
+      </TextInput>
+      <Button
+         onPress={() => dispatch(saveComment({currentComment, restaurant}))}
+          title="Learn More"
+          color="#841584"
+          accessibilityLabel="Learn more about this purple button"
+        />      
       </View>
     );
   }
