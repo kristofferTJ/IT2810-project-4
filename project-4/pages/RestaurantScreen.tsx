@@ -110,3 +110,5 @@ export default function RestaurantScreen() {
       margin: 10,
     }
   });
+
+  
