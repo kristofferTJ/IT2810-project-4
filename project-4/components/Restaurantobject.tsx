@@ -1,13 +1,16 @@
 import React, { useEffect } from 'react';
 import { View, Text, Image, StyleSheet, ImageSourcePropType } from 'react-native';
-import { Card, ListItem, Button, Icon } from 'react-native-elements';
+import { Card, ListItem, Button } from 'react-native-elements';
 import { IRestaurant } from '../../backend/models/Restaurant';
+import Icon from 'react-native-vector-icons/FontAwesome';
+
 
 type Props = {
     restaurant: IRestaurant
+    navigation: any
   }
 
-export const Restaurantobject: React.FC<Props> = ({ restaurant }) => {
+export const Restaurantobject: React.FC<Props> = ({ restaurant, navigation }) => {
 
     const restaurantnames: string[] = [
         "American", "Asian", "Classic cuisine", "Contemporary", 
@@ -69,6 +72,21 @@ export const Restaurantobject: React.FC<Props> = ({ restaurant }) => {
          <Text style={styles.text}>{restaurant.price}</Text>
          </View>
          </View>
+         <Button 
+          style={styles.button}
+          onPress={() => 
+            navigation.navigate('Restaurant', restaurant)} 
+            title={"More information"}
+            icon={
+              <Icon
+                name="chevron-right"
+                size={14}
+                style={{padding: 5, paddingTop: 8}}
+                color="black"
+              />}
+            iconRight
+            type="outline"
+            titleStyle={ {fontSize: 15}} />
     </Card>
     )
 }
@@ -82,5 +100,8 @@ const styles = StyleSheet.create({
     text: {
         paddingLeft: 18,
         paddingTop: 15
+    },
+    button: {
+      marginTop: 10,
     }
 })

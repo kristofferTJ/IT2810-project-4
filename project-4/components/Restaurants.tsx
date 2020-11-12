@@ -10,7 +10,7 @@ import { fetchRestaurants } from '../store/ducks/restaurantDuck';
 import { Restaurantobject } from './Restaurantobject';
 
 
-function Restaurants() {
+function Restaurants({navigation}: any) {
 
     const dispatch = useDispatch();
   
@@ -33,9 +33,11 @@ function Restaurants() {
 
     return (
        <View>
-            {restaurants.map((restaurant: IRestaurant) => 
+            {restaurants.map((restaurant: IRestaurant, index: any) => 
             <Restaurantobject
                 restaurant={restaurant}
+                key={index}
+                navigation={navigation}
             ></Restaurantobject>
             )}
        </View>
