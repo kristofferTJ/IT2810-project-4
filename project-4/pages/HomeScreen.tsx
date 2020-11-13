@@ -1,7 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { StyleSheet, Text, Button, View, ScrollView } from 'react-native';
-import Header from '../components/Header';
 import Searchbar from '../components/Searchbar';
 import { Provider, useDispatch, useSelector } from 'react-redux';
 import { applyMiddleware, createStore } from 'redux';
@@ -36,7 +35,7 @@ export default function HomeScreen({navigation, route}: any) {
 
   return (
     <Provider store={store}>
-      <View>
+      <View style={{backgroundColor: 'white'}}>
       <ScrollView>
       <View style={styles.search}>
         <Searchbar/>
@@ -52,14 +51,6 @@ export default function HomeScreen({navigation, route}: any) {
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    paddingTop: 0,
-    backgroundColor: 'lightgrey',
-  },
-
-  text: {color: 'blue', 
-  fontSize:30},
 
   search: {
     flexDirection: "row"

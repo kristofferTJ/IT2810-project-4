@@ -1,6 +1,5 @@
 import React, {useState} from 'react';
-import { StyleSheet, View, Text, Image, Linking } from 'react-native';
-import Header from '../components/Header';
+import { StyleSheet, View, Text, Image, Linking, ImageSourcePropType  } from 'react-native';
 import { Divider, Icon } from 'react-native-elements';
 import { IRestaurant } from '../../backend/models/Restaurant';
 import { MaterialCommunityIcons, FontAwesome, Foundation } from '@expo/vector-icons';
@@ -58,7 +57,7 @@ export default function RestaurantScreen() {
       }
 
     return (
-      <View>
+      <View style={{backgroundColor: "white"}}>
         <Image source={image_path} 
         style={{ width: 500, height: 200 }}
         />

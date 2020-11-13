@@ -1,14 +1,16 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { View, Modal, StyleSheet, TouchableHighlight, Text, FlatList } from 'react-native'
-import { Divider, ListItem } from 'react-native-elements';
+import { Divider, ListItem, Button } from 'react-native-elements';
 // import CollapsibleList from "react-native-collapsible-list";
-import { stateType } from '../App';
+import { stateType } from '../pages/HomeScreen';
 import { updateRegionFilter } from '../store/ducks/regionFilterDuck';
 import CheckBox from 'react-native-check-box';
 import RegionFiltersComponent from './Filters/RegionFiltersComponent';
 import CuisineFiltersComponent from './Filters/CuisineFiltersComponent';
 import PriceFiltersComponent from './Filters/PriceFiltersComponent';
+import { AntDesign } from '@expo/vector-icons';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
 
 
 
@@ -30,52 +32,69 @@ function FilterButtons() {
           <View style={styles.modalView}>
             {/* Buttons for the different filters */}
             <View style={styles.filterButtons}>
-              <TouchableHighlight
-                style={styles.filters}
+              <Button
+                buttonStyle={styles.filters}
                 onPress={() => {
                 setFilterVisible(0);
-                }}> 
-                <Text style={styles.textStyle}>Region</Text>
-              </TouchableHighlight>
-              <TouchableHighlight
-                style={styles.filters}
+                }}
+                title={"Region"}
+                titleStyle={styles.textStyle}
+                >
+              </Button>
+              <Button
+                buttonStyle={styles.filters}
                 onPress={() => {
                 setFilterVisible(1);
-                }}> 
-                <Text style={styles.textStyle}>Cuisine</Text>
-              </TouchableHighlight>
-              <TouchableHighlight
-                style={styles.filters}
+                }}
+                title={"Cuisine"}
+                titleStyle={styles.textStyle}
+                > 
+              </Button>
+              <Button
+                buttonStyle={styles.filters}
                 onPress={() => {
                 setFilterVisible(2);
-                }}> 
-                <Text style={styles.textStyle}>Price</Text>
-              </TouchableHighlight>
+                }}
+                title={"Price"}
+                titleStyle={styles.textStyle}
+                > 
+              </Button>
               </View>
               {filterVisible===0 ? <RegionFiltersComponent></RegionFiltersComponent> :<Text> </Text>}
               {filterVisible===1 ? <CuisineFiltersComponent></CuisineFiltersComponent> :<Text> </Text>}
               {filterVisible===2 ? <PriceFiltersComponent></PriceFiltersComponent> :<Text> </Text>}
-
-            <TouchableHighlight
-              style={styles.closeButton}
+            <Button
+              type="outline"
+              //style={styles.closeButton}
+              buttonStyle={styles.closeButton}
               onPress={() => {
                 setModalVisible(!modalVisible);
               }}
+              titleStyle={ {fontSize: 15, color: "#424242"}}
+              title={"Hide filters "}
+              icon={
+               <AntDesign name="close" size={18} color="#424242" />
+              }
+              iconRight
             >
-              <Text style={styles.textStyle}>Hide filter</Text>
-            </TouchableHighlight> 
+              <Text style={styles.textStyle}>Hide filters</Text>
+            </Button> 
           </View>
         </View>
       </Modal>
 
-      <TouchableHighlight
-        style={styles.openButton}
+      <Button
+        buttonStyle={styles.openButton}
         onPress={() => {
           setModalVisible(true);
         }}
+        icon={
+          <MaterialCommunityIcons name="filter-variant" size={25} color="white" />
+        }
       > 
+      
         <Text style={styles.textStyle}>Filter</Text>
-      </TouchableHighlight>
+      </Button>
     </View>
 
     )
@@ -102,19 +121,17 @@ const styles = StyleSheet.create({
       backgroundColor: "#00bcd4",
       padding: 10,
       elevation: 2,
-      width: 80,
+      width: 60,
       borderRadius: 10,
-      height: 40,
+      height: 42,
       marginTop: 10
     },
     closeButton: {
-      backgroundColor: "#00bcd4",
-      padding: 10,
+      borderColor: "#424242", 
+      width: 150,
       elevation: 2,
-      width: 100,
-      borderRadius: 10,
-      height: 35,
-      marginTop: 10
+      borderRadius: 5,
+      marginTop: 14
     },
     filters: {
       backgroundColor: "#00bcd4",
@@ -122,16 +139,18 @@ const styles = StyleSheet.create({
       elevation: 2,
       width: 80,
       height: 40,
-      paddingTop: 10
+      paddingTop: 10,
+      borderRadius: 10
     },
     textStyle: {
       color: "white",
+      fontSize: 15,
       fontWeight: "bold",
       textAlign: "center"
     },
-
     filterButtons: {
       flexDirection: "row",
+      justifyContent: "center",
     }
   });
   

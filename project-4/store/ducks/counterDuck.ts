@@ -72,7 +72,7 @@ export function updateCounter(
     }
   return  (dispatch: Function) => {
     axios.get(
-      `http://localhost:8000/api/counter/?${
+      `http://it2810-41.idi.ntnu.no:3000/api/counter/?${
         + regionString + cuisineString + priceString  + searchString }`
     )
     .then((response) => dispatch(fetchCounterSuccess(response)))

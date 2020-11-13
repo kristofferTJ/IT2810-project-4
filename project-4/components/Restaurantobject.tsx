@@ -81,12 +81,13 @@ export const Restaurantobject: React.FC<Props> = ({ restaurant, navigation }) =>
               <Icon
                 name="chevron-right"
                 size={14}
-                style={{padding: 5, paddingTop: 8}}
+                style={{padding: 5, paddingTop: 8, color: "#424242"}}
                 color="black"
               />}
             iconRight
             type="outline"
-            titleStyle={ {fontSize: 15}} />
+            buttonStyle={{borderColor: "white"}}
+            titleStyle={ {fontSize: 15, color: "#424242"}} />
     </Card>
     )
 }

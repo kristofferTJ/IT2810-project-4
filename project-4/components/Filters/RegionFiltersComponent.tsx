@@ -2,7 +2,7 @@ import React from 'react'
 import { FlatList } from 'react-native';
 import CheckBox from 'react-native-check-box';
 import { useDispatch, useSelector } from 'react-redux';
-import { stateType } from '../../App';
+import { stateType } from '../../pages/HomeScreen';
 import { updateRegionFilter } from '../../store/ducks/regionFilterDuck';
 
 function RegionFiltersComponent() {
