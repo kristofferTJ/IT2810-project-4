@@ -2,17 +2,18 @@ import React from 'react'
 import { StatusBar } from 'expo-status-bar';
 import { useEffect } from 'react';
 import { View, Text, Image, ScrollView } from 'react-native';
-import { Card, ListItem, Button, Icon } from 'react-native-elements';
 import { useDispatch, useSelector } from 'react-redux';
 import { IRestaurant } from '../../backend/models/Restaurant';
-import { stateType } from '../App';
+import { stateType } from '../pages/HomeScreen';
 import { fetchRestaurants } from '../store/ducks/restaurantDuck';
 import { Restaurantobject } from './Restaurantobject';
+import { updateCounter } from '../store/ducks/counterDuck';
 
 
 function Restaurants({navigation}: any) {
 
     const dispatch = useDispatch();
+
   
     // Gets all the states from redux that is needed to fetch the correct restaurants
     const regionFilter = useSelector((state: stateType)  => state.regionFilter)
@@ -22,6 +23,12 @@ function Restaurants({navigation}: any) {
     const sortBy = useSelector((state: stateType)  => state.sorting)
     const skip = useSelector((state: stateType) => state.skip)
     const restaurants = useSelector((state: stateType) => state.restaurant)
+
+    useEffect(() => {
+        dispatch(
+            updateCounter(regionFilter, cuisineFilter, priceFilter, search)
+        );
+    }, [updateCounter, regionFilter, cuisineFilter, priceFilter, search])
   
     useEffect(() => {
       dispatch(

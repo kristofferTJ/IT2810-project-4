@@ -4,6 +4,7 @@ import { Icon } from 'react-native-elements'
 import { StyleSheet, TextInput, View } from 'react-native';
 import { useDispatch } from 'react-redux';
 import { updateSearch } from '../store/ducks/searchDuck';
+import { MaterialIcons } from '@expo/vector-icons';
 
 export default function Searchbar() {
 
@@ -24,10 +25,11 @@ export default function Searchbar() {
         onChangeText={(text: string) => changeText(text)}
       > 
       </TextInput>
-      <Icon
+      <MaterialIcons 
+      name="search" 
+      size={22} 
       style={styles.searchicon}
-      size={22}
-      name='search' />
+       />
     </View>
   </View>
   );
@@ -39,6 +41,7 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: "space-between",
         margin: 5,
+        marginLeft: 10,
         borderWidth: 1,
         padding: 12,
         paddingLeft: 20,
@@ -49,9 +52,10 @@ const styles = StyleSheet.create({
     },
     searchicon:{
          padding: 3, 
+         color: "#616161",
     },
     formField: {
-        width: 210,
+        width: 255,
         fontSize: 18,
     }
 });
