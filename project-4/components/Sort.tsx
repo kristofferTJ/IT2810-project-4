@@ -16,6 +16,8 @@ function Sort() {
         dispatch(setSorting(value, ascending))
     }
 
+    //Modal for sorting alternatives, with checkboxes that updates what to sort on    
+
     return (
         <View>
             <Modal animationType="slide" transparent={true} visible={modalVisible}>

@@ -54,7 +54,7 @@ export default function RestaurantScreen() {
       }
 
     return (
-      <View style={{backgroundColor: "white"}}>
+      <View>
         <Image source={image_path} 
         style={{ width: 500, height: 200 }}
         />
@@ -114,7 +114,6 @@ export default function RestaurantScreen() {
             <Text style={styles.infotext}>{restaurant.price}</Text>
           </View>
           <View style={styles.container}>
-            
             <Text style={styles.website}
             onPress={() => Linking.openURL(restaurant.url)}>
               Visit website

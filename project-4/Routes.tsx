@@ -13,6 +13,8 @@ export const Routes: React.FC<RoutesProps> = ({}) => {
 
     const Stack = createStackNavigator();
 
+    //Routes to the different pages
+
     return(
         <NavigationContainer>
         <Stack.Navigator>
