@@ -9,12 +9,11 @@ import { stateType } from '../pages/HomeScreen';
 export default function Pagination() {
 
     const dispatch = useDispatch();
-    
-    let skip = useSelector((state: stateType) => state.skip)
-    let counter = useSelector((state: stateType) => state.counter)
 
-    console.log("skip:", (skip/15))
-    console.log("counter:", counter)
+    let skip = useSelector((state: stateType) => state.skip) //Skip is the number of restaurants you are skipping, skip/15 is the page you are currently on
+    let counter = useSelector((state: stateType) => state.counter) //Counter is the number of pages
+
+  //Paginationbuttons is skipping 15 pages on press and get disabled on the last page
 
   return (
     <View style={{alignItems: 'center'}}>
