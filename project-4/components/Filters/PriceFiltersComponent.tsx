@@ -2,9 +2,10 @@ import React from 'react'
 import { FlatList } from 'react-native';
 import CheckBox from 'react-native-check-box';
 import { useDispatch, useSelector } from 'react-redux';
-import { stateType } from '../../App';
+import { stateType } from '../../pages/HomeScreen';
 import { updatePriceFilter } from '../../store/ducks/priceFilterDuck';
 import { updateRegionFilter } from '../../store/ducks/regionFilterDuck';
+import { updateSkip } from '../../store/ducks/skipDuck';
 
 function PriceFiltersComponent() {
 
@@ -12,7 +13,7 @@ function PriceFiltersComponent() {
     const activePrices: string[] = useSelector((state: stateType) => state.priceFilter)
 
     const dispatch = useDispatch();
-
+    let skip = useSelector((state: stateType) => state.skip);
 
     return (
         <FlatList
@@ -24,7 +25,8 @@ function PriceFiltersComponent() {
             key={item}
             style={{ flex: 1, padding: 10}}
             onClick={() => {
-              dispatch(updatePriceFilter(item));
+              dispatch(updatePriceFilter(item)),
+              dispatch(updateSkip(skip=0))
             }}
             isChecked={activePrices.includes(item)}
             rightText={item}

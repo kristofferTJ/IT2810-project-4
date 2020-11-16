@@ -35,7 +35,7 @@ export default function counterReducer(state: number = 0, action: counterAction)
 export function fetchCounterSuccess(response: any) {
     return {
       type: COUNTER_UPDATE_SUCCESS,
-      payload: Math.ceil(response.data/20),
+      payload: Math.floor(response.data/15),
     };
   }
   

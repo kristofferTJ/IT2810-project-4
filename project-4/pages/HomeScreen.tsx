@@ -1,6 +1,7 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, Button, View, ScrollView } from 'react-native';
+import { StyleSheet, Text, View, ScrollView } from 'react-native';
+import {Divider, Button} from "react-native-elements";
 import Searchbar from '../components/Searchbar';
 import { Provider, useDispatch, useSelector } from 'react-redux';
 import { applyMiddleware, createStore } from 'redux';
@@ -13,6 +14,7 @@ import Restaurants from '../components/Restaurants';
 import Navigationbutton from '../components/Navigationbutton';
 import FilterButtons from '../components/FilterButtons';
 import Pagination from '../components/Pagination';
+import Sort from '../components/Sort';
 
 
 // Types for all the redux states 
@@ -35,12 +37,14 @@ export default function HomeScreen({navigation, route}: any) {
 
   return (
     <Provider store={store}>
-      <View style={{backgroundColor: 'white'}}>
+      <View>
       <ScrollView>
       <View style={styles.search}>
         <Searchbar/>
         <FilterButtons></FilterButtons>
-      </View>        
+      </View>   
+      <Sort/>
+      <Divider/>
       <Restaurants navigation={navigation}/>
       <Pagination/>
       </ScrollView>

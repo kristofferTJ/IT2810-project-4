@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { View, Modal, StyleSheet, TouchableHighlight, Text, FlatList } from 'react-native'
-import { Divider, ListItem, Button } from 'react-native-elements';
-// import CollapsibleList from "react-native-collapsible-list";
+import { Button } from 'react-native-elements';
 import { stateType } from '../pages/HomeScreen';
 import { updateRegionFilter } from '../store/ducks/regionFilterDuck';
 import CheckBox from 'react-native-check-box';
@@ -11,18 +10,14 @@ import CuisineFiltersComponent from './Filters/CuisineFiltersComponent';
 import PriceFiltersComponent from './Filters/PriceFiltersComponent';
 import { AntDesign } from '@expo/vector-icons';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
+import { updateSkip } from '../store/ducks/skipDuck';
 
 
 
 function FilterButtons() {
 
     const [modalVisible, setModalVisible] = useState(false);
-    const [regionVisible, setRegionVisible] = useState(true);
-    const [priceVisible, setPriceVisible] = useState(false);
-    const [cuisineVisible, setCuisineVisible] = useState(false);
     const [filterVisible, setFilterVisible] = useState(0);
-
-
 
     return(
 
@@ -65,7 +60,6 @@ function FilterButtons() {
               {filterVisible===2 ? <PriceFiltersComponent></PriceFiltersComponent> :<Text> </Text>}
             <Button
               type="outline"
-              //style={styles.closeButton}
               buttonStyle={styles.closeButton}
               onPress={() => {
                 setModalVisible(!modalVisible);

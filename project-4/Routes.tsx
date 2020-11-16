@@ -29,7 +29,8 @@ export const Routes: React.FC<RoutesProps> = ({}) => {
             },
             headerTitleStyle: {
                 fontSize: 28,
-              }
+              },
+              cardStyle: { backgroundColor: 'white' },
             }}    
           />
           <Stack.Screen 
@@ -46,7 +47,8 @@ export const Routes: React.FC<RoutesProps> = ({}) => {
           },
           headerTitleStyle: {
             fontSize: 28,
-          }
+          },
+          cardStyle: { backgroundColor: 'white' },
           }}  />
         </Stack.Navigator>
       </NavigationContainer>
