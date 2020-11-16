@@ -55,7 +55,7 @@ const styles = StyleSheet.create({
          color: "#616161",
     },
     formField: {
-        width: 255,
+        width: "70%",
         fontSize: 18,
     }
 });
