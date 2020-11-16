@@ -28,6 +28,46 @@ router.put('/comment/:restaurant_id', async (req: any, res: Response) => {
     res.status(404).json({ msg: 'Page not found' });
   }
 });
+router.get('/', async (req: any, res: Response) => {
+  try {
+    const restaurant = await Restaurant.find().limit(20);
+    if (!restaurant) {
+      return res
+        .status(404)
+        .json({ msg: 'Denne restauranten er ikke i vår database' });
+    }
+    return res.json(restaurant);
+  } catch (err) {
+    console.error(err.message);
+    if (err.kind == 'ObjectId') {
+      return res.status(400).json({ msg: 'Restaurant not found' });
+    }
+    res.status(404).json({ msg: 'Page not found' });
+  }
+});
+
+// @route   GET api/restaurant/:restaurant_id
+// @desc    Get restaurant by id
+// @access  Public
+router.get('/id/:restaurant_id', async (req: any, res: Response) => {
+  const { comment } = req.body;
+
+  try {
+    const restaurant = await Restaurant.findById(req.params.restaurant_id);
+    if (!restaurant) {
+      return res
+        .status(404)
+        .json({ msg: 'Denne restauranten er ikke i vår database' });
+    }
+    return res.json(restaurant);
+  } catch (err) {
+    console.error(err.message);
+    if (err.kind == 'ObjectId') {
+      return res.status(400).json({ msg: 'Restaurant not found' });
+    }
+    res.status(404).json({ msg: 'Page not found' });
+  }
+});
 
 // @route   PUT api/restaurant/filter
 // @desc    Get restaurants by presented filter

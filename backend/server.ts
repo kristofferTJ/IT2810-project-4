@@ -20,6 +20,6 @@ app.get('/', (req, res) => res.send('API Running'));
 app.use('/api/restaurant', require('./routes/api/restaurant'));
 app.use('/api/counter', require('./routes/api/counter'));
 
-const PORT = process.env.PORT || 8000;
+const PORT = process.env.PORT || 3000;
 
 app.listen(PORT, () => console.log(`Server started at port ${PORT}`));

@@ -69,19 +69,26 @@ export function fetchRestaurants(
   for (let i = 0; i < cuisineFilter.length; i++) {
     cuisineString += `&cuisine${i === 0 ? '' : i}=${cuisineFilter[i]}`;
   }
-  
+
   let priceString = '';
   for (let x = 0; x < priceFilter.length; x++) {
     priceString += `&price${x === 0 ? '' : x}=${priceFilter[x]}`;
   }
 
-
   return (dispatch: Function) =>
     axios
       .get(
         `http://it2810-41.idi.ntnu.no:3000/api/restaurant/filter/?skip=${
-          skipInput + regionString + cuisineString + priceString  + searchString + sortString + ascendingString}`
+          skipInput +
+          regionString +
+          cuisineString +
+          priceString +
+          searchString +
+          sortString +
+          ascendingString
+        }`
       )
       .then((response) => dispatch(fetchRestaurantsSuccess(response)))
+      .then((response) => console.log(response))
       .catch((err) => dispatch(fetchRestaurantsFailure));
 }
