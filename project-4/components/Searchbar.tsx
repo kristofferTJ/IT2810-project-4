@@ -1,6 +1,4 @@
-import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { Icon } from 'react-native-elements'
 import { StyleSheet, TextInput, View } from 'react-native';
 import { useDispatch } from 'react-redux';
 import { updateSearch } from '../store/ducks/searchDuck';

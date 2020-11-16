@@ -9,6 +9,8 @@ import { updateSkip } from '../../store/ducks/skipDuck';
 function RegionFiltersComponent() {
 
     const allRegions: string[] = ['Austria', 'California', 'Chicago', 'Denmark', 'New York City', 'Norway', 'Sweden']
+
+    // Regions that are already chosen
     const activeRegions: string[] = useSelector((state: stateType) => state.regionFilter)
 
     const dispatch = useDispatch();

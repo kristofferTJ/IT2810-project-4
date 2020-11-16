@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import {View, Modal, StyleSheet, FlatList} from 'react-native';
-//import CheckBox from 'react-native-check-box';
+import {View, Modal, StyleSheet} from 'react-native';
 import {Button, CheckBox} from 'react-native-elements';
 import { useDispatch } from 'react-redux';
 import { setSorting } from '../store/ducks/sortingDuck';
@@ -16,8 +15,6 @@ function Sort() {
         value === "name" ? ascending=true : ascending=false;
         dispatch(setSorting(value, ascending))
     }
-
-    
 
     return (
         <View>

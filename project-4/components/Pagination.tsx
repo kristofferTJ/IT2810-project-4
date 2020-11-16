@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { View, StyleSheet } from 'react-native';
 import { Button } from 'react-native-elements';
 import { AntDesign } from '@expo/vector-icons';
@@ -12,9 +12,6 @@ export default function Pagination() {
     
     let skip = useSelector((state: stateType) => state.skip)
     let counter = useSelector((state: stateType) => state.counter)
-
-    console.log("skip:", (skip/15))
-    console.log("counter:", counter)
 
   return (
     <View style={{alignItems: 'center'}}>

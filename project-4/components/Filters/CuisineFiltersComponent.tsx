@@ -4,12 +4,13 @@ import CheckBox from 'react-native-check-box';
 import { useDispatch, useSelector } from 'react-redux';
 import { stateType } from '../../pages/Homescreen';
 import { updateCuisineFilter } from '../../store/ducks/cuisineFilterDuck';
-import { updateRegionFilter } from '../../store/ducks/regionFilterDuck';
 import { updateSkip } from '../../store/ducks/skipDuck';
 
 function PriceFiltersComponent() {
 
     const allCuisines: string[] = ['American', 'Asian', 'Italian',  'Indian' ,'Japanese', 'Korean', 'Vegetarian']
+
+    // Cuisines that are already chosen 
     const activeCuisines: string[] = useSelector((state: stateType) => state.cuisineFilter)
 
     const dispatch = useDispatch();

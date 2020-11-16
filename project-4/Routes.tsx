@@ -38,7 +38,6 @@ export const Routes: React.FC<RoutesProps> = ({}) => {
           component={RestaurantScreen}
           options={{ title: 'Michelindatabase',
           headerTintColor: "#ffffff",
-          fontSize: 50,
           headerStyle: {
           backgroundColor: '#4dd0e1',
           borderBottomColor: '#4dd0e1',

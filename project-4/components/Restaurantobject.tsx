@@ -1,9 +1,8 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { View, Text, Image, StyleSheet, ImageSourcePropType } from 'react-native';
-import { Card, ListItem, Button } from 'react-native-elements';
+import { Card, Button } from 'react-native-elements';
 import { IRestaurant } from '../../backend/models/Restaurant';
 import Icon from 'react-native-vector-icons/FontAwesome';
-
 
 type Props = {
     restaurant: IRestaurant
@@ -12,14 +11,9 @@ type Props = {
 
 export const Restaurantobject: React.FC<Props> = ({ restaurant, navigation }) => {
 
-    const restaurantnames: string[] = [
-        "American", "Asian", "Classic cuisine", "Contemporary", 
-        "Creative", "European contemporary", "Indian", "Italian", "Japanese",
-        "Korean", "Market cuisine", "Modern cuisine", "Vegetarian"
-      ]
-
     let image_path: ImageSourcePropType = require('../images/Default.jpg');
   
+      // Check if there is a picture for the cuisine, if not uses the default image 
       if(restaurant.cuisine == 'American'){
           image_path = require('../images/American.jpg');
         }
