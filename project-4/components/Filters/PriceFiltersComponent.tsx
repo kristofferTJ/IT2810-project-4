@@ -4,12 +4,13 @@ import CheckBox from 'react-native-check-box';
 import { useDispatch, useSelector } from 'react-redux';
 import { stateType } from '../../pages/HomeScreen';
 import { updatePriceFilter } from '../../store/ducks/priceFilterDuck';
-import { updateRegionFilter } from '../../store/ducks/regionFilterDuck';
 import { updateSkip } from '../../store/ducks/skipDuck';
 
 function PriceFiltersComponent() {
 
     const allPrices: string[] = ['$', '$$', '$$$', '$$$$', '$$$$$']
+
+    // Prices that are already chosen 
     const activePrices: string[] = useSelector((state: stateType) => state.priceFilter)
 
     const dispatch = useDispatch();

@@ -1,21 +1,18 @@
-import React, {useState} from 'react';
+import React from 'react';
 import { StyleSheet, View, Text, Image, Linking, ImageSourcePropType  } from 'react-native';
 import { Divider, Icon } from 'react-native-elements';
 import { IRestaurant } from '../../backend/models/Restaurant';
-import { MaterialCommunityIcons, FontAwesome, Foundation } from '@expo/vector-icons';
+import { MaterialCommunityIcons, FontAwesome } from '@expo/vector-icons';
 import {useRoute} from "@react-navigation/native";
-//import { Image } from 'react-native-elements';
 
-interface IParams {
-  name: string;
-}
 
 export default function RestaurantScreen() {
 
   const restaurant = useRoute().params as IRestaurant
 
   let image_path: ImageSourcePropType = require('../images/Default.jpg');
-  
+      
+    // Check if there is a picture for the cuisine, if not uses the default image 
       if(restaurant.cuisine == 'American'){
           image_path = require('../images/American.jpg');
         }
