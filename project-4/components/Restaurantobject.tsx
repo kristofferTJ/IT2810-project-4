@@ -3,6 +3,10 @@ import { View, Text, Image, StyleSheet, ImageSourcePropType } from 'react-native
 import { Card, ListItem, Button } from 'react-native-elements';
 import { IRestaurant } from '../../backend/models/Restaurant';
 import Icon from 'react-native-vector-icons/FontAwesome';
+import { useDispatch, useSelector } from 'react-redux';
+import { stateType } from '../pages/HomeScreen';
+import { fetchRestaurants } from '../store/ducks/restaurantDuck';
+import axios from 'axios';
 
 
 type Props = {
@@ -11,6 +15,24 @@ type Props = {
   }
 
 export const Restaurantobject: React.FC<Props> = ({ restaurant, navigation }) => {
+  const dispatch = useDispatch();
+
+  
+    // Gets all the states from redux that is needed to fetch the correct restaurants
+    const regionFilter = useSelector((state: stateType)  => state.regionFilter)
+    const cuisineFilter = useSelector((state: stateType)  => state.cuisineFilter)
+    const priceFilter = useSelector((state: stateType)  => state.priceFilter)
+    const search = useSelector((state: stateType)  => state.search)
+    const sortBy = useSelector((state: stateType)  => state.sorting)
+    const skip = useSelector((state: stateType) => state.skip)
+  
+    useEffect(() => {
+      dispatch(
+          fetchRestaurants(skip, regionFilter, cuisineFilter, priceFilter, search, sortBy.sortBy, sortBy.ascending)
+      );
+    }, [fetchRestaurants, regionFilter, cuisineFilter, priceFilter, search, sortBy, skip])
+
+
 
     const restaurantnames: string[] = [
         "American", "Asian", "Classic cuisine", "Contemporary", 
@@ -75,7 +97,7 @@ export const Restaurantobject: React.FC<Props> = ({ restaurant, navigation }) =>
          <Button 
           style={styles.button}
           onPress={() => 
-            navigation.navigate('Restaurant', restaurant)} 
+            navigation.navigate('Restaurant', restaurant.name)} 
             title={"More information"}
             icon={
               <Icon

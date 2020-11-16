@@ -32,7 +32,7 @@ export default function HomeScreen({navigation, route}: any) {
   // const middlewares = [thunk];
 
   // const store = createStore(rootReducer, applyMiddleware(...middlewares));
-
+ 
   return (
       <View>
       <ScrollView>

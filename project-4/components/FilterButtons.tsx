@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { View, Modal, StyleSheet, TouchableHighlight, Text, FlatList } from 'react-native'
 import { Divider, ListItem } from 'react-native-elements';
 // import CollapsibleList from "react-native-collapsible-list";
-import { stateType } from '../App';
 import { updateRegionFilter } from '../store/ducks/regionFilterDuck';
 import CheckBox from 'react-native-check-box';
 import RegionFiltersComponent from './Filters/RegionFiltersComponent';
@@ -15,9 +14,6 @@ import PriceFiltersComponent from './Filters/PriceFiltersComponent';
 function FilterButtons() {
 
     const [modalVisible, setModalVisible] = useState(false);
-    const [regionVisible, setRegionVisible] = useState(true);
-    const [priceVisible, setPriceVisible] = useState(false);
-    const [cuisineVisible, setCuisineVisible] = useState(false);
     const [filterVisible, setFilterVisible] = useState(0);
 
 

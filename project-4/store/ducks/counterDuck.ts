@@ -35,7 +35,7 @@ export default function counterReducer(state: number = 0, action: counterAction)
 export function fetchCounterSuccess(response: any) {
     return {
       type: COUNTER_UPDATE_SUCCESS,
-      payload: Math.ceil(response.data/20),
+      payload: Math.ceil(response.data/15),
     };
   }
   
@@ -72,7 +72,7 @@ export function updateCounter(
     }
   return  (dispatch: Function) => {
     axios.get(
-      `http://localhost:8000/api/counter/?${
+      `http://it2810-41.idi.ntnu.no:3000/api/counter/?${
         + regionString + cuisineString + priceString  + searchString }`
     )
     .then((response) => dispatch(fetchCounterSuccess(response)))
