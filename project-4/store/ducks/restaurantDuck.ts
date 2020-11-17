@@ -1,4 +1,4 @@
-import { IRestaurant } from '../../../../backend/models/Restaurant';
+import { IRestaurant } from '../../../backend/models/Restaurant';
 import axios from 'axios';
 
 // Types
@@ -69,18 +69,24 @@ export function fetchRestaurants(
   for (let i = 0; i < cuisineFilter.length; i++) {
     cuisineString += `&cuisine${i === 0 ? '' : i}=${cuisineFilter[i]}`;
   }
-  
+
   let priceString = '';
   for (let x = 0; x < priceFilter.length; x++) {
     priceString += `&price${x === 0 ? '' : x}=${priceFilter[x]}`;
   }
 
-
   return (dispatch: Function) =>
     axios
       .get(
-        `http://localhost:8000/api/restaurant/filter/?skip=${
-          skipInput + regionString + cuisineString + priceString  + searchString + sortString + ascendingString}`
+        `http://it2810-41.idi.ntnu.no:3000/api/restaurant/filter/?skip=${
+          skipInput +
+          regionString +
+          cuisineString +
+          priceString +
+          searchString +
+          sortString +
+          ascendingString
+        }`
       )
       .then((response) => dispatch(fetchRestaurantsSuccess(response)))
       .catch((err) => dispatch(fetchRestaurantsFailure));
