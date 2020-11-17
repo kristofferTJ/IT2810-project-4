@@ -89,6 +89,5 @@ export function fetchRestaurants(
         }`
       )
       .then((response) => dispatch(fetchRestaurantsSuccess(response)))
-      .then((response) => console.log(response))
       .catch((err) => dispatch(fetchRestaurantsFailure));
 }

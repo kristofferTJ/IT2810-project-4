@@ -120,8 +120,8 @@ export default function RestaurantScreen() {
             </Text>
           </View>
         </View>
-        <Divider/>
-        <Text style={styles.infotext}>Comments:</Text>
+        
+        
       </View>
     );
   }
@@ -156,7 +156,6 @@ export default function RestaurantScreen() {
     website: {
       fontSize: 17,
       margin: 15,
-      textAlign: 'center',
       paddingLeft: 7,
       textDecorationLine: 'underline',
     }

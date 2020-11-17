@@ -77,6 +77,7 @@ function Sort() {
                 setModalVisible(true);
               }}
             title="Sort"
+            titleStyle={{color: "#00bcd4"}}
             type="clear"
             />   
         </View>
