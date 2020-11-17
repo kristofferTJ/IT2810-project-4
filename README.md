@@ -45,6 +45,10 @@ Vi valgte å benytte oss av MERN stacken. Vi ønsket å benytte oss av en NoSQL 
 det enkelt å bygge ut APIer uten å skrive mye kode. React er en veldokumentert biblioteket som gjør det enkelt å bygge ut web-komponenter uten mye
 komplikasjoner ved håndtering av staten. 
 
+## Redux
+
+Redux er blitt benyttet til state management, og alt av kode er gjenbrukt fra prosjekt 3.
+
 
 
 # Bruk av tredjeparts-komponenter
@@ -53,7 +57,7 @@ komplikasjoner ved håndtering av staten.
 Vi valgte å benytte oss av RNE som tredjeparts-komponent fordi den gjør utvikling av applikasjoner på tvers av plattformer ekstremt enkelt. 
 RNE er godt dokumentert og fungerer derfor godt som et utgangspunkt for førstegangsbrukerer av React-Native. 
 I tillegg har komponentene et fint design som sparte oss for tid på styling og passet fint til applikasjonen.
-. 
+
 
 **React Navigation** ble brukt til routing mellom sidene med Stack Navigator biblioteket. Dette benytter seg av en slags “history stack”, der man kan da enkelt navigere mellom sider ved at appen “pusher” og “popper” sider fra navigasjon stacken. 
  
@@ -64,7 +68,6 @@ I tillegg har komponentene et fint design som sparte oss for tid på styling og 
 - @expo/vector-icons - ikoner
 - react-native-vector-icons - ikoner
 - react-native-check-box - checkbox løsning på filtrering
-- react-redux - gjenbrukt fra prosjekt 3. Benyttet for å håndtere states
 
 
 
