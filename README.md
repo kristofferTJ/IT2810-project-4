@@ -1,5 +1,4 @@
 
-
 # Introduksjon
 
 Michelindatabase er en side for å søke i alle restaurantene som fikk michelin stjerne i 2019. 
@@ -43,7 +42,8 @@ Prosjektet er bygget opp av Expo-rammeverket. Expo er et rammeverk og en plattfo
 
 Vi valgte å benytte oss av MERN stacken. Vi ønsket å benytte oss av en NoSQL database(se database under). Express er et rammeverk fra Node som gjør
 det enkelt å bygge ut APIer uten å skrive mye kode. React er en veldokumentert biblioteket som gjør det enkelt å bygge ut web-komponenter uten mye
-komplikasjoner ved håndtering av staten. 
+komplikasjoner ved håndtering av staten. Alt dette er gjenbrukt fra prosjekt 3.
+
 
 ## Redux
 
